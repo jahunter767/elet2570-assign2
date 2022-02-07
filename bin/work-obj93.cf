@@ -1,0 +1,79 @@
+v 4
+file . "../test.vhdl" "edd4ad87d1a83216ffa080a0ce33189e6d0aa462" "20210313041439.922":
+  entity test at 1( 0) + 0 on 60;
+  architecture behav of test at 11( 139) + 0 on 61;
+file . "../test8BitSub.vhd" "317920d02818e0c73848af06ebeac9cb0a0b71f5" "20210313041439.850":
+  entity test8bitsub at 1( 0) + 0 on 56;
+  architecture behav of test8bitsub at 11( 153) + 0 on 57;
+file . "../test8BitNot.vhd" "dce7137a273676b029766e68e34880d4dba28e81" "20210313041439.787":
+  entity test8bitnot at 1( 0) + 0 on 52;
+  architecture behav of test8bitnot at 11( 153) + 0 on 53;
+file . "../test8BitEor.vhd" "2454b7a02e9b399e2cd6e8de4cb57bae57e0b2a3" "20210313041439.711":
+  entity test8biteor at 1( 0) + 0 on 48;
+  architecture behav of test8biteor at 11( 153) + 0 on 49;
+file . "../test8BitAnd.vhd" "eac249f8bf3c5aa49e29f722f7cc06701c66fada" "20210313041439.644":
+  entity test8bitand at 1( 0) + 0 on 44;
+  architecture behav of test8bitand at 11( 153) + 0 on 45;
+file . "../src/sub_8bit.vhdl" "581f9f2acc8f3c281777797ec7454ba039107228" "20210313041439.583":
+  entity sub_8bit at 1( 0) + 0 on 40;
+  architecture alu2 of sub_8bit at 15( 274) + 0 on 41;
+file . "../src/or_8bit.vhdl" "956c6da27b95e4f70f5ea3049b53de5040d01d6b" "20210313041439.541":
+  entity or_8bit at 1( 0) + 0 on 36;
+  architecture alu2 of or_8bit at 11( 184) + 0 on 37;
+file . "../src/mux8to1_8bit.vhdl" "07e438728cc6d5e96d40841bc61f9638c7185010" "20210313041439.475":
+  entity mux8to1_8bit at 1( 0) + 0 on 32;
+  architecture alu2 of mux8to1_8bit at 19( 348) + 0 on 33;
+file . "../src/fullAdder.vhdl" "b6a8f6fbfba4ce5ccc01a0e4ccd5a3d2340baad5" "20210313041439.383":
+  entity fulladder at 1( 0) + 0 on 28;
+  architecture alu2 of fulladder at 13( 186) + 0 on 29;
+file . "../src/eor_8bit.vhdl" "b9533098c7cdadfafd820d217bce7a7cd5d96e0a" "20210313041439.345":
+  entity eor_8bit at 1( 0) + 0 on 24;
+  architecture alu2 of eor_8bit at 13( 210) + 0 on 25;
+file . "../src/comp_8bit.vhdl" "d897b4749371445aba0d62280874d89e930219b6" "20210313041439.305":
+  entity comp_8bit at 1( 0) + 0 on 20;
+  architecture alu2 of comp_8bit at 13( 198) + 0 on 21;
+file . "../src/alu.vhdl" "980ec61bc7155bad469784ca390fd22d6900b0fa" "20210313041439.220":
+  entity alu at 1( 0) + 0 on 16;
+  architecture alu2 of alu at 15( 281) + 0 on 17;
+file . "../pkgs/pkg_alu.vhdl" "6e53c2ef8d7b7fcd22561b9643ce538fa360dbd6" "20210313041439.180":
+  package pkg_alu at 1( 0) + 0 on 13;
+file . "../pkgs/pkg_1bit.vhdl" "2804cc83b3eec88b72601077afdfa4edd6228494" "20210313041439.143":
+  package pkg_1bit at 1( 0) + 0 on 11;
+file . "../pkgs/pkg_8bit.vhdl" "1c2a6e479d42a5c4855aa2314e2dc02621df548a" "20210313041439.158":
+  package pkg_8bit at 1( 0) + 0 on 12;
+file . "../src/add_8bit.vhdl" "5692b78a30cfe037e056642f3058a57a43693346" "20210313041439.195":
+  entity add_8bit at 1( 0) + 0 on 14;
+  architecture alu2 of add_8bit at 14( 246) + 0 on 15;
+file . "../src/and_8bit.vhdl" "16663205c9b4910c2830d7d6f94e36c4272486ca" "20210313041439.284":
+  entity and_8bit at 1( 0) + 0 on 18;
+  architecture alu2 of and_8bit at 11( 186) + 0 on 19;
+file . "../src/dFlipFlop.vhdl" "0be1df83a57eb3eff4026c0798a42ddf3905fd4c" "20210313041439.327":
+  entity dflipflop at 1( 0) + 0 on 22;
+  architecture alu2 of dflipflop at 11( 152) + 0 on 23;
+file . "../src/eor.vhdl" "530916d5ffe5766eaacde80cb6af65513818d0bb" "20210313041439.365":
+  entity eor at 1( 0) + 0 on 26;
+  architecture alu2 of eor at 11( 138) + 0 on 27;
+file . "../src/mul_8bit.vhdl" "6b3bbcf8b5b7ffdaa1412b3738141ddf7f67943d" "20210313041439.404":
+  entity mul_8bit at 1( 0) + 0 on 30;
+  architecture alu2 of mul_8bit at 20( 350) + 0 on 31;
+file . "../src/not_8bit.vhdl" "ae3e61a53de2b8b7a7bf050365ead0b4db2119c2" "20210313041439.521":
+  entity not_8bit at 1( 0) + 0 on 34;
+  architecture alu2 of not_8bit at 11( 183) + 0 on 35;
+file . "../src/reg_8bit.vhdl" "0d4ea59069d2e408f3371fc3b23a14ee9c8b1408" "20210313041439.563":
+  entity reg_8bit at 1( 0) + 0 on 38;
+  architecture alu2 of reg_8bit at 14( 241) + 0 on 39;
+file . "../test8BitAdd.vhd" "2af60e92b39a7f594fb1b20e1139305bfa3cbde9" "20210313041439.610":
+  entity test8bitadd at 1( 0) + 0 on 42;
+  architecture behav of test8bitadd at 11( 153) + 0 on 43;
+file . "../test8BitComp.vhd" "69011be0e1222ed0d8c6cc4ddc1d6590b9820a2d" "20210313041439.678":
+  entity test8bitcomp at 1( 0) + 0 on 46;
+  architecture behav of test8bitcomp at 11( 155) + 0 on 47;
+file . "../test8BitMul.vhd" "1d18c212c0ce6cc57808fa6208eaa2da39796b09" "20210313041439.745":
+  entity test8bitmul at 1( 0) + 0 on 50;
+  architecture behav of test8bitmul at 11( 153) + 0 on 51;
+file . "../test8BitOr.vhd" "21de2dab9efc80458a3a392e18c30352313d37ca" "20210313041439.817":
+  entity test8bitor at 1( 0) + 0 on 54;
+  architecture behav of test8bitor at 11( 151) + 0 on 55;
+file . "../testFullAdder.vhdl" "765e420fc2c67066e11a93707688cc05cf718e9f" "20210313041439.884":
+  entity testfulladder at 1( 0) + 0 on 58;
+  architecture behav of testfulladder at 11( 157) + 0 on 59;

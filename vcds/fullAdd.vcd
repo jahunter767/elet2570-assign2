@@ -1,0 +1,119 @@
+$date
+  Fri Mar 12 22:04:52 2021
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module pkg_1bit $end
+$upscope $end
+$scope module pkg_8bit $end
+$upscope $end
+$scope module pkg_alu $end
+$upscope $end
+$scope module testfulladder $end
+$var reg 8 ! a[7:0] $end
+$var reg 8 " b[7:0] $end
+$var reg 8 # y[7:0] $end
+$var reg 8 $ flags[7:0] $end
+$var reg 3 % code[2:0] $end
+$var reg 1 & clk $end
+$scope module add0 $end
+$var reg 1 ' a $end
+$var reg 1 ( b $end
+$var reg 1 ) c $end
+$var reg 1 * sum $end
+$var reg 1 + carry $end
+$var reg 1 , s0 $end
+$var reg 1 - c0 $end
+$var reg 1 . c1 $end
+$scope module eor0 $end
+$var reg 1 / a $end
+$var reg 1 0 b $end
+$var reg 1 1 y $end
+$upscope $end
+$scope module eor1 $end
+$var reg 1 2 a $end
+$var reg 1 3 b $end
+$var reg 1 4 y $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+bUUUUU000 !
+bUUUUUUUU "
+bUUUUUUU0 #
+bUUUUU0UU $
+bUUU %
+0&
+0'
+0(
+0)
+0*
+0+
+0,
+U-
+U.
+0/
+00
+01
+02
+03
+04
+#1000000
+bUUUUU100 !
+bUUUUUUU1 #
+1&
+1)
+1*
+13
+14
+#2000000
+0&
+#3000000
+bUUUUU010 !
+bUUUUUUU1 #
+1&
+1(
+0)
+1*
+1,
+10
+11
+12
+03
+14
+#4000000
+0&
+#5000000
+bUUUUU110 !
+bUUUUUUU0 #
+bUUUUU1UU $
+1&
+1)
+0*
+1+
+13
+04
+#6000000
+0&
+#7000000
+bUUUUU111 !
+bUUUUUUU1 #
+1&
+1'
+1*
+0,
+1/
+01
+02
+14
+#8000000
+0&

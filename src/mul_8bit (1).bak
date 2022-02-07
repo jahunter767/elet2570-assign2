@@ -1,0 +1,113 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+use work.pkg_1bit.eor;
+
+use work.pkg_8bit.arr8x8;
+
+use work.pkg_8bit.and_8bit;
+use work.pkg_8bit.add_8bit;
+use work.pkg_8bit.eor_8bit;
+
+entity mul_8bit is
+    port(
+        A, B: in std_logic_vector(7 downto 0);
+        Y: out std_logic_vector(7 downto 0);
+        ovf: out std_logic
+    );
+end mul_8bit;
+
+architecture ALU2 of mul_8bit is
+    signal signA, signB: std_logic_vector(7 downto 0);
+    signal invA, invB: std_logic_vector(7 downto 0);
+    signal vect0, vect1: std_logic_vector(7 downto 0);
+    signal magA, magB: std_logic_vector(7 downto 0);
+
+    signal B0, B1, B2, B3: std_logic_vector(7 downto 0);
+    signal B4, B5, B6, B7: std_logic_vector(7 downto 0);
+
+    signal prod0, prod1, prod2, prod3: std_logic_vector(7 downto 0);
+    signal prod4, prod5, prod6, prod7: std_logic_vector(7 downto 0);
+
+    signal shift1, shift2, shift3, shift4: std_logic_vector(7 downto 0);
+    signal shift5, shift6, shift7: std_logic_vector(7 downto 0);
+
+    signal sum0, sum1, sum2, sum3: std_logic_vector(7 downto 0);
+    signal sum4, sum5, sum6: std_logic_vector(7 downto 0);
+    signal carry0, carry1, carry2, carry3: std_logic;
+    signal carry4, carry5, carry6: std_logic;
+
+    signal sign3, inv3, vect3: std_logic_vector(7 downto 0);
+
+begin
+    eorA: eor_8bit port map (A, signA, invA);
+    eorB: eor_8bit port map (A, signB, invB);
+
+    sizeA: add_8bit port map(invA, vect0, magA);
+    sizeB: add_8bit port map(invB, vect1, magB);
+
+    p0: and_8bit port map (A, B0, prod0);
+    p1: and_8bit port map (A, B1, prod1);
+    p2: and_8bit port map (A, B2, prod2);
+    p3: and_8bit port map (A, B3, prod3);
+    p4: and_8bit port map (A, B4, prod4);
+    p5: and_8bit port map (A, B5, prod5);
+    p6: and_8bit port map (A, B6, prod6);
+    p7: and_8bit port map (A, B7, prod7);
+
+    fa0: add_8bit port map (prod0, shift1, sum0, carry0);
+    fa1: add_8bit port map (sum0, shift2, sum1, carry1);
+    fa2: add_8bit port map (sum1, shift3, sum2, carry2);
+    fa3: add_8bit port map (sum2, shift4, sum3, carry3);
+    fa4: add_8bit port map (sum3, shift5, sum4, carry4);
+    fa5: add_8bit port map (sum4, shift6, sum5, carry5);
+    fa6: add_8bit port map (sum5, shift7, sum6, carry6);
+
+    signY: eor port map (A(7), B(7), sign3(0));
+    eor3: eor_8bit port map (sum6, sign3, inv3);
+    finalProd: add_8bit port map (inv3, vect3, Y);
+
+    process begin
+        for i in 1 to 7 loop
+            signA(i) <= A(7);
+            signB(i) <= A(7);
+        end loop;
+
+        vect0 <= "00000000"; vect0(0) <= A(7);
+        vect1 <= "00000000"; vect1(0) <= B(7);
+
+        for i in 1 to 7 loop
+            B0(i) <= B(0);
+            B1(i) <= B(1);
+            B2(i) <= B(2);
+            B3(i) <= B(3);
+            B4(i) <= B(4);
+            B5(i) <= B(5);
+            B6(i) <= B(6);
+            B7(i) <= B(7);
+        end loop;
+
+        shift1(7 downto 1) <= prod1(6 downto 0); shift1(0)          <= '0';
+        shift2(7 downto 2) <= prod2(5 downto 0); shift2(1 downto 0) <= "00";
+        shift3(7 downto 3) <= prod3(4 downto 0); shift3(2 downto 0) <= "000";
+        shift4(7 downto 4) <= prod4(3 downto 0); shift4(3 downto 0) <= "0000";
+        shift5(7 downto 5) <= prod5(2 downto 0); shift5(4 downto 0) <= "00000";
+        shift6(7 downto 6) <= prod6(1 downto 0); shift6(5 downto 0) <= "000000";
+        shift7(7)          <= prod7(0);          shift7(6 downto 0) <= "0000000";
+
+        for i in 1 to 7 loop
+            sign3(i) <= sign3(0);
+        end loop;
+
+        vect3 <= "00000000"; vect3(0) <= sign3(0);
+
+        ovf <= prod0(7) or 
+            prod1(7) or prod1(6) or 
+            prod2(7) or prod2(6) or prod2(5) or 
+            prod3(7) or prod3(6) or prod3(5) or prod3(4) or 
+            prod4(7) or prod4(6) or prod4(5) or prod4(4) or prod4(3) or 
+            prod5(7) or prod5(6) or prod5(5) or prod5(4) or prod5(3) or prod5(2) or 
+            prod6(7) or prod6(6) or prod6(5) or prod6(4) or prod6(3) or prod6(2) or prod6(1) or 
+            carry0 or carry1 or carry2 or carry3 or carry4 or carry5 or carry6;
+    end process;
+end ALU2;

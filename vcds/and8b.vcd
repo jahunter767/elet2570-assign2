@@ -1,0 +1,81 @@
+$date
+  Fri Mar 12 21:31:37 2021
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module pkg_1bit $end
+$upscope $end
+$scope module pkg_8bit $end
+$upscope $end
+$scope module pkg_alu $end
+$upscope $end
+$scope module test8bitand $end
+$var reg 8 ! a[7:0] $end
+$var reg 8 " b[7:0] $end
+$var reg 8 # y[7:0] $end
+$var reg 8 $ flags[7:0] $end
+$var reg 3 % code[2:0] $end
+$var reg 1 & clk $end
+$scope module and0 $end
+$var reg 8 ' a[7:0] $end
+$var reg 8 ( b[7:0] $end
+$var reg 8 ) y[7:0] $end
+$scope module gen0(0) $end
+$upscope $end
+$scope module gen0(1) $end
+$upscope $end
+$scope module gen0(2) $end
+$upscope $end
+$scope module gen0(3) $end
+$upscope $end
+$scope module gen0(4) $end
+$upscope $end
+$scope module gen0(5) $end
+$upscope $end
+$scope module gen0(6) $end
+$upscope $end
+$scope module gen0(7) $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b00000000 !
+b00000001 "
+b00000000 #
+bUUUUUUUU $
+bUUU %
+0&
+b00000000 '
+b00000001 (
+b00000000 )
+#1000000
+b00000001 !
+b00000001 #
+1&
+b00000001 '
+b00000001 )
+#2000000
+0&
+#3000000
+b00010000 !
+b00000000 #
+1&
+b00010000 '
+b00000000 )
+#4000000
+0&
+#5000000
+b00000000 "
+1&
+b00000000 (
+#6000000
+0&

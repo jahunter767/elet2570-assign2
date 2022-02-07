@@ -1,0 +1,60 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+use work.pkg_8bit.and_8bit;
+use work.pkg_8bit.or_8bit;
+
+entity mux8to1_8bit is
+    port(
+        D0, D1, D2, D3, D4, D5, D6, D7: in std_logic_vector(7 downto 0);
+        S: in std_logic_vector(2 downto 0);
+        Y: out std_logic_vector(7 downto 0)
+    );
+end mux8to1_8bit;
+
+architecture ALU2 of mux8to1_8bit is
+    signal S0, S1, S2, S3, S4, S5, S6, S7: std_logic_vector(7 downto 0);
+
+    signal I0, I1, I2, I3, I4, I5, I6, I7: std_logic_vector(7 downto 0);
+    signal J0, J1, J2, J3: std_logic_vector(7 downto 0);
+    signal K0, K1: std_logic_vector(7 downto 0);
+begin
+    S0(0) <= (not S(2)) and (not S(1)) and (not S(0));
+    S1(0) <= (not S(2)) and (not S(1)) and S(0);
+    S2(0) <= (not S(2)) and S(1) and (not S(0));
+    S3(0) <= (not S(2)) and S(1) and S(0);
+    S4(0) <= S(2) and (not S(1)) and (not S(0));
+    S5(0) <= S(2) and (not S(1)) and S(0);
+    S6(0) <= S(2) and S(1) and (not S(0));
+    S7(0) <= S(2) and S(1) and S(0);
+    
+    gen0: for i in 1 to 7 generate
+        S0(i) <= S0(0);
+        S1(i) <= S1(0);
+        S2(i) <= S2(0);
+        S3(i) <= S3(0);
+        S4(i) <= S4(0);
+        S5(i) <= S5(0);
+        S6(i) <= S6(0);
+        S7(i) <= S7(0);
+    end generate;
+
+    and0: and_8bit port map (S0, D0, I0);
+    and1: and_8bit port map (S1, D1, I1);
+    and2: and_8bit port map (S2, D2, I2);
+    and3: and_8bit port map (S3, D3, I3);
+    and4: and_8bit port map (S4, D4, I4);
+    and5: and_8bit port map (S5, D5, I5);
+    and6: and_8bit port map (S6, D6, I6);
+    and7: and_8bit port map (S7, D7, I7);
+
+    or00: or_8bit port map (I0, I1, J0);
+    or01: or_8bit port map (I2, I3, J1);
+    or02: or_8bit port map (I4, I5, J2);
+    or03: or_8bit port map (I6, I7, J3);
+
+    or10: or_8bit port map (J0, J1, K0);
+    or11: or_8bit port map (J2, J3, K1);
+
+    or20: or_8bit port map (K0, K1, Y);
+end ALU2;
