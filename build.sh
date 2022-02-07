@@ -1,5 +1,5 @@
 #! /bin/bash
-projectRoot="${PWD}/${1}"
+projectRoot="${PWD}"
 
 clear
 cd "${projectRoot}/bin"

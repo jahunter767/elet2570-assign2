@@ -1,6 +1,6 @@
 #! /bin/bash
-projectRoot="${PWD}/${1}"
-testbench="${2}"
+projectRoot="${PWD}"
+testbench="${1}"
 
 echo "Deleting old vcd..."
 rm "${projectRoot}/vcds/${testbench}.vcd"

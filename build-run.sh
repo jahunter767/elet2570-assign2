@@ -1,6 +1,6 @@
 #! /bin/bash
-projectDir="${1}"
-testbench="${2}"
+projectDir="${PWD}"
+testbench="${1}"
 
 ./build.sh ${projectDir}
 ./run.sh ${projectDir} ${testbench}
